@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勉強タイマー Focus Shield</title>
+    <!-- Google Fonts: Zen Maru Gothic & M PLUS Rounded 1c for cute pastel style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="header-inner">
+            <span class="header-logo-dot"></span>
+            <h1 class="header-title">勉強タイマー</h1>
+            <span class="header-tag">Focus Mode</span>
+        </div>
+        <div id="headerStatus" class="header-status">
+            準備中
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+
+        <!-- Setup Panel -->
+        <div id="setupCard" class="card setup-card">
+            <div class="card-header">
+                <h2>学習時間を決めよう</h2>
+                <p>集中したい時間を選んで「スタート」を押してね！</p>
+            </div>
+
+            <!-- Quick Presets -->
+            <div class="form-group">
+                <label class="form-label">かんたん選択</label>
+                <div class="preset-grid">
+                    <button type="button" onclick="setPresetTime(15)" class="btn btn-preset">15分</button>
+                    <button type="button" onclick="setPresetTime(25)" class="btn btn-preset active">25分</button>
+                    <button type="button" onclick="setPresetTime(45)" class="btn btn-preset">45分</button>
+                    <button type="button" onclick="setPresetTime(60)" class="btn btn-preset">60分</button>
+                </div>
+            </div>
+
+            <!-- Custom Input -->
+            <div class="form-group">
+                <label for="customMinutes" class="form-label">自由に入力 (分)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="customMinutes" min="1" max="720" value="25" oninput="handleCustomInput(this.value)" class="time-input">
+                    <span class="input-unit">分</span>
+                </div>
+            </div>
+
+            <!-- Feature Info Box -->
+            <div class="info-box">
+                <div class="info-title">✨ 中断防止・全画面機能</div>
+                <ul class="info-list">
+                    <li>スタートを押すと画面全体がタイマーになります。</li>
+                    <li>勉強中に別のタブやアプリに移動すると<strong class="highlight-text">「ピーピッ」</strong>の警告音が繰り返し鳴ります。</li>
+                </ul>
+            </div>
+
+            <!-- Start Button -->
+            <button type="button" onclick="startTimer()" class="btn btn-primary btn-start">
+                タイマー開始（全画面）
+            </button>
+        </div>
+
+        <!-- Fullscreen Timer View -->
+        <div id="timerContainer" class="timer-overlay hidden">
+            <!-- Top Status Bar -->
+            <div class="overlay-header">
+                <div class="status-indicator">
+                    <span class="pulse-dot"></span>
+                    <span>集中モード実行中</span>
+                </div>
+                
+                <div id="warningCounter" class="warning-tag hidden">
+                    よその見過ぎ: <span id="warningCount">0</span> 回
+                </div>
+            </div>
+
+            <!-- Center Clock Display -->
+            <div class="clock-section">
+                <div id="timeDisplay" class="time-display">25:00</div>
+
+                <!-- Progress Bar Container -->
+                <div class="progress-container">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+
+                <div id="timerMessage" class="timer-message">
+                    画面を閉じたり別のアプリを開かず、目の前の勉強に集中しよう！
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="control-actions">
+                <button type="button" id="pauseBtn" onclick="togglePause()" class="btn btn-control btn-secondary">
+                    一時停止
+                </button>
+                <button type="button" onclick="confirmReset()" class="btn btn-control btn-danger">
+                    終了
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Warning Overlay Modal -->
+    <div id="warningModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <div class="modal-title">⚠️ 画面が切り替わりました！</div>
+            <p class="modal-desc">
+                他のタブやアプリが開かれました。<br>
+                勉強に戻って集中を再開しましょう！
+            </p>
+            <button type="button" onclick="dismissWarning()" class="btn btn-primary btn-modal">
+                勉強に戻る
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
