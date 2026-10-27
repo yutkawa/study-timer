@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>勉強タイマー Focus Shield</title>
+    <title>勉強タイマー</title>
     <!-- Google Fonts: Zen Maru Gothic & M PLUS Rounded 1c for cute pastel style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
         <div id="setupCard" class="card setup-card">
             <div class="card-header">
                 <h2>学習時間を決めよう</h2>
-                <p>集中したい時間を選んで「スタート」を押してね！</p>
+                <p>集中したい時間を選んで「スタート」を押してください。</p>
             </div>
 
             <!-- Quick Presets -->
@@ -56,10 +56,10 @@
 
             <!-- Feature Info Box -->
             <div class="info-box">
-                <div class="info-title">✨ 中断防止・全画面機能</div>
+                <div class="info-title">中断防止・全画面機能</div>
                 <ul class="info-list">
                     <li>スタートを押すと画面全体がタイマーになります。</li>
-                    <li>勉強中に別のタブやアプリに移動すると<strong class="highlight-text">「ピーピッ」</strong>の警告音が繰り返し鳴ります。</li>
+                    <li>勉強中に別のタブやアプリに移動すると警告音が繰り返し鳴ります。</li>
                 </ul>
             </div>
 
@@ -75,11 +75,11 @@
             <div class="overlay-header">
                 <div class="status-indicator">
                     <span class="pulse-dot"></span>
-                    <span>集中モード実行中</span>
+                    <span>タイマー実行中</span>
                 </div>
                 
                 <div id="warningCounter" class="warning-tag hidden">
-                    よその見過ぎ: <span id="warningCount">0</span> 回
+                    よそ見回数: <span id="warningCount">0</span> 回
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
                 </div>
 
                 <div id="timerMessage" class="timer-message">
-                    画面を閉じたり別のアプリを開かず、目の前の勉強に集中しよう！
+                    画面を閉じたり別のアプリを開かず、目の前の勉強に集中しましょう！
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
     <!-- Warning Overlay Modal -->
     <div id="warningModal" class="modal-overlay hidden">
         <div class="modal-card">
-            <div class="modal-title">⚠️ 画面が切り替わりました！</div>
+            <div class="modal-title">⚠️画面が切り替わりました！</div>
             <p class="modal-desc">
                 他のタブやアプリが開かれました。<br>
                 勉強に戻って集中を再開しましょう！
